@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { useState } from 'react';
+import './App.css';
+import CreateEvent from './components/createEvent';
+import Calender from './components/Calender';
+
+const appConatiner = { display: 'flex' }
 function App() {
+
+  const [isModalOpen, setisModalOpen] = useState(false);
+
+
+  const openCreateEvent = () => {
+    setisModalOpen(!isModalOpen);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={appConatiner}>
+      <button onClick={openCreateEvent} >Create Event </button>
+      <Calender />
+      {isModalOpen ?
+        <CreateEvent
+
+          setisModalOpen={setisModalOpen} />
+        : null
+      }
+
     </div>
   );
 }

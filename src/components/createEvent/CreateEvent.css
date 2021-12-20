@@ -1,0 +1,17 @@
+.create-event-container {
+    .backdrop {
+        background: #f0f0f0;
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+    }
+    .create-event-content {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 100px;
+        width: 100px;
+        z-index: 2;
+    }
+}
